@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JeevanKitchen</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <a href="#" class="logo"><i class="fas fa-utensils"></i>JeevanKitchen</a>
+    <div id="menu-bar" class="fas fa-bars"></div>
+    <nav class="navbar">
+      <a href="#home">home</a>
+      <a href="#speciality">speciality</a>
+      <a href="#popular">popular</a>
+      <a href="#gallery">gallery</a>
+      <a href="#review">review</a>
+      <a href="#order">order</a>
+      <a href="#" id="loginBtn">login</a>
+    </nav>
+  </header>
+
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="auth-container">
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Login</button>
+          <button class="auth-tab" data-tab="register">Register</button>
+        </div>
+        <form id="loginForm" class="auth-form active">
+          <h2>Login</h2>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <form id="registerForm" class="auth-form">
+          <h2>Register</h2>
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <input type="password" placeholder="Confirm Password" required>
+          <button type="submit" class="btn">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <section class="home" id="home">
+    <div class="content">
+      <h3>Experience the Taste of Authentic Cuisine</h3>
+      <p>Welcome to JeevanKitchen, where every dish is a journey of flavor. Our menu is curated with passion to bring you the best in culinary excellence, using only the freshest ingredients and time-honored recipes.</p>
+      <a href="#" class="btn">order now</a>
+    </div>
+    <div class="image">
+      <img src="images/home-img.png" alt="Home Image">
+    </div>
+  </section>
+
+  <section class="speciality" id="speciality">
+    <h1 class="heading"> our <span>speciality</span> </h1>
+    <div class="box-container">
+      <div class="box">
+        <img class="image" src="images/s-img-1.jpg" alt="Gourmet Burger">
+        <div class="content">
+          <img src="images/s-1.png" alt="">
+          <h3>Gourmet Burger</h3>
+          <p>Savor our juicy gourmet burger crafted with premium ingredients and our secret sauce.</p>
+        </div>
+      </div>
+      <div class="box">
+        <img class="image" src="images/s-img-2.jpg" alt="Wood-Fired Pizza">
+        <div class="content">
+          <img src="images/s-2.png" alt="">
+          <h3>Wood-Fired Pizza</h3>
+          <p>Enjoy our wood-fired pizza topped with the freshest locally-sourced ingredients.</p>
+        </div>
+      </div>
+      <div class="box">
+        <img class="image" src="images/s-img-3.jpg" alt="Creamy Ice-Cream">
+        <div class="content">
+          <img src="images/s-3.png" alt="">
+          <h3>Creamy Ice-Cream</h3>
+          <p>Delight in our creamy ice-cream made with natural flavors and real fruit.</p>
+        </div>
+      </div>
+      <div class="box">
+        <img class="image" src="images/s-img-4.jpg" alt="Refreshing Beverages">
+        <div class="content">
+          <img src="images/s-4.png" alt="">
+          <h3>Refreshing Beverages</h3>
+          <p>Refresh yourself with our selection of chilled beverages, perfect for any occasion.</p>
+        </div>
+      </div>
+      <div class="box">
+        <img class="image" src="https://i.pinimg.com/originals/ac/a5/a8/aca5a8f5478522258b1d041d4f052400.png" alt="Delectable Sweets">
+        <div class="content">
+          <img src="images/s-img-5.jpg" alt="">
+          <h3>Delectable Sweets</h3>
+          <p>Indulge in our traditional sweets crafted with authentic recipes for a taste of home.</p>
+        </div>
+      </div>
+      <div class="box">
+        <img class="image" src="https://i.pinimg.com/736x/d5/9a/bd/d59abd704a27f12d4aeda7373a90583d.jpg" alt="Healthy Breakfast">
+        <div class="content">
+          <img src="images/s-img-6.jpg" alt="">
+          <h3>Healthy Breakfast</h3>
+          <p>Start your day with our nutritious breakfast options, combining taste and wellness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="popular" id="popular">
+    <h1 class="heading"> most <span>popular</span> foods </h1>
+    <div class="box-container">
+      <div class="box">
+        <span class="price"> ₹70 - ₹250 </span>
+        <img src="images/p-1.jpg" alt="Gourmet Burger">
+        <h3>Gourmet Burger</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="btn">order now</a>
+      </div>
+      <div class="box">
+        <span class="price"> ₹40 - ₹1500 </span>
+        <img src="https://static.toiimg.com/thumb/53096885.cms?width=1200&height=900" alt="Signature Cakes">
+        <h3>Signature Cakes</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="btn">order now</a>
+      </div>
+      <div class="box">
+        <span class="price"> ₹15 - ₹100 </span>
+        <img src="https://i.pinimg.com/originals/ac/a5/a8/aca5a8f5478522258b1d041d4f052400.png" alt="Assorted Sweets">
+        <h3>Assorted Sweets</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="btn">order now</a>
+      </div>
+      <div class="box">
+        <span class="price"> ₹15 - ₹200 </span>
+        <img src="images/p-4.jpg" alt="Artisan Cupcakes">
+        <h3>Artisan Cupcakes</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="btn">order now</a>
+      </div>
+      <div class="box">
+        <span class="price"> ₹70 - ₹800 </span>
+        <img src="images/p-5.jpg" alt="Chilled Beverages">
+        <h3>Chilled Beverages</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="btn">order now</a>
+      </div>
+      <div class="box">
+        <span class="price"> ₹20 - ₹900 </span>
+        <img src="images/p-6.jpg" alt="Homemade Ice-Cream">
+        <h3>Homemade Ice-Cream</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="btn">order now</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="step-container">
+    <h1 class="heading">how it <span>works</span></h1>
+    <section class="steps">
+      <div class="box">
+        <img src="images/step-1.jpg" alt="Select Your Dish">
+        <h3>Select your favorite dish</h3>
+      </div>
+      <div class="box">
+        <img src="images/step-2.jpg" alt="Fast Delivery">
+        <h3>Fast and free delivery</h3>
+      </div>
+      <div class="box">
+        <img src="images/step-3.jpg" alt="Convenient Payment">
+        <h3>Convenient payment options</h3>
+      </div>
+      <div class="box">
+        <img src="images/step-4.jpg" alt="Enjoy Your Meal">
+        <h3>Enjoy a delightful meal</h3>
+      </div>
+    </section>
+  </div>
+
+  <section class="gallery" id="gallery">
+    <h1 class="heading"> food <span> gallery </span> </h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="images/g-1.jpg" alt="Culinary Art">
+        <div class="content">
+          <h3>Culinary Art</h3>
+          <p>Experience a visual feast of our culinary masterpieces.</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="images/g-2.jpg" alt="Culinary Art">
+        <div class="content">
+          <h3>Culinary Art</h3>
+          <p>Experience a visual feast of our culinary masterpieces.</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="images/g-3.jpg" alt="Culinary Art">
+        <div class="content">
+          <h3>Culinary Art</h3>
+          <p>Experience a visual feast of our culinary masterpieces.</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="images/g-4.jpg" alt="Culinary Art">
+        <div class="content">
+          <h3>Culinary Art</h3>
+          <p>Experience a visual feast of our culinary masterpieces.</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="images/g-5.jpg" alt="Culinary Art">
+        <div class="content">
+          <h3>Culinary Art</h3>
+          <p>Experience a visual feast of our culinary masterpieces.</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="images/g-6.jpg" alt="Culinary Art">
+        <div class="content">
+          <h3>Culinary Art</h3>
+          <p>Experience a visual feast of our culinary masterpieces.</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="images/g-7.jpg" alt="Culinary Art">
+        <div class="content">
+          <h3>Culinary Art</h3>
+          <p>Experience a visual feast of our culinary masterpieces.</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="images/g-8.jpg" alt="Culinary Art">
+        <div class="content">
+          <h3>Culinary Art</h3>
+          <p>Experience a visual feast of our culinary masterpieces.</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+      <div class="box">
+        <img src="images/g-9.jpg" alt="Culinary Art">
+        <div class="content">
+          <h3>Culinary Art</h3>
+          <p>Experience a visual feast of our culinary masterpieces.</p>
+          <a href="#" class="btn">order now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="review" id="review">
+    <h1 class="heading"> Customers <span>Reviews</span> </h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="images/pic1.png" alt="Soniya Jaman">
+        <h3>Soniya Jaman</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p>JeevanKitchen never fails to impress with its authentic flavors. Every dish feels like a warm hug.</p>
+      </div>
+      <div class="box">
+        <img src="images/pic2.png" alt="Mr Suyeb">
+        <h3>Mr Suyeb</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p>A delightful experience from start to finish. Highly recommended for food enthusiasts.</p>
+      </div>
+      <div class="box">
+        <img src="images/pic3.png" alt="Robart Sonu">
+        <h3>Robart Sonu</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <p>The taste and presentation are exceptional. Truly a culinary masterpiece.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <h1 class="heading"> Place Your Order Now </h1>
+    <div class="row">
+      <div class="image">
+        <img src="images/order1.jpg" alt="Order Image">
+      </div>
+      <form action="">
+        <div class="inputBox">
+          <input type="text" placeholder="name">
+          <input type="email" placeholder="email">
+        </div>
+        <div class="inputBox">
+          <input type="number" placeholder="number">
+          <input type="text" placeholder="food name">
+        </div>
+        <textarea placeholder="address" cols="30" rows="10"></textarea>
+        <input type="submit" value="order now" class="btn">
+      </form>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div class="share">
+      <a href="#" class="btn">facebook</a>
+      <a href="#" class="btn">twitter</a>
+      <a href="#" class="btn">instagram</a>
+      <a href="#" class="btn">pinterest</a>
+      <a href="#" class="btn">linkedin</a>
+    </div>
+    <h1 class="credit"> Created by <span>Jeevan @2025</span> | All rights reserved </h1>
+  </section>
+
+  <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
+  <div class="loader-container">
+    <img src="images/loader.gif" alt="Loading...">
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
