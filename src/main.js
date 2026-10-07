@@ -12,7 +12,7 @@ const state = {
   category: "Indian",
   saved: (() => {
     try {
-      return parseSaved(localStorage.getItem(SAVED_KEY));
+      return api.withoutBeef(parseSaved(localStorage.getItem(SAVED_KEY)));
     } catch {
       return [];
     }
@@ -149,7 +149,9 @@ function markCategory() {
 }
 
 let shelfRequest = null;
-async function showCategory(name) {
+async function showCategory(requested) {
+  // There is no beef shelf; an old #c/Beef link lands on the Indian kitchen instead.
+  const name = requested === "Beef" ? "Indian" : requested;
   state.category = name;
   markCategory();
   $("#shelf-title").textContent = name === "Indian" ? "Indian kitchen" : name;
@@ -219,17 +221,25 @@ async function openMeal(id) {
   $("#r-ingredients").replaceChildren(...Array.from({ length: 6 }, () => el("li", { class: "skeleton" })));
   $("#r-steps").replaceChildren();
   $("#r-hero").style.backgroundImage = "";
+  state.meal = null;
+  $("#r-cook").disabled = true;
+  $("#r-save").disabled = true;
   if (!recipeDialog.open) {
     recipeDialog.showModal();
     root.classList.add("modal-open");
   }
   try {
     const meal = await api.meal(id);
-    if (!meal) throw new Error("not found");
-    renderMeal(meal);
+    if (meal) {
+      renderMeal(meal);
+      return;
+    }
+    // Missing, or a beef recipe from an old link.
+    $("#r-name").textContent = "This recipe isn't on JeevanKitchen.";
   } catch {
     $("#r-name").textContent = "Couldn't load this recipe.";
   }
+  $("#r-ingredients").replaceChildren();
 }
 
 function renderMeal(meal) {
@@ -277,6 +287,7 @@ function renderMeal(meal) {
   $("#r-video").hidden = !video;
   if (video) $("#r-video").href = video;
   $("#r-cook").disabled = state.steps.length === 0;
+  $("#r-save").disabled = false;
   paintSaveButton();
   recipeDialog.scrollTop = 0;
 }

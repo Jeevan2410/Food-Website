@@ -1,6 +1,20 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { clock, duration, findTimer, ingredients, parseRoute, parseSaved, safeImage, steps, summary, toggleSaved } from "../src/recipes.js";
+import {
+  clock,
+  duration,
+  findTimer,
+  hasBeef,
+  ingredients,
+  isBeefIngredient,
+  looksBeef,
+  parseRoute,
+  parseSaved,
+  safeImage,
+  steps,
+  summary,
+  toggleSaved,
+} from "../src/recipes.js";
 
 test("ingredients pairs names with measures and skips blanks", () => {
   const meal = {
@@ -74,6 +88,30 @@ test("favourites toggle and survive storage", () => {
   assert.deepEqual(toggleSaved(saved, a), []);
   assert.deepEqual(parseSaved(JSON.stringify([a, { id: "x", name: 1 }, null])), [a]);
   assert.deepEqual(parseSaved("{oops"), []);
+});
+
+test("isBeefIngredient spots beef by any name, but not beef tomatoes or other steaks", () => {
+  for (const name of ["Beef", "Minced Beef", "Beef Stock Cubes", "Veal", "Oxtail", "Suet", "Tripe", "Sirloin steak", "Chuck Roast", "Fillet Of Steak", "Flank Steak"]) {
+    assert.equal(isBeefIngredient(name), true, name);
+  }
+  for (const name of ["Beef tomatoes", "Pork Shoulder Steaks", "Tuna Steak", "Cauliflower steak", "Chicken", "Lamb Mince", "Paneer"]) {
+    assert.equal(isBeefIngredient(name), false, name);
+  }
+});
+
+test("hasBeef checks category, name and every ingredient", () => {
+  assert.equal(hasBeef({ strCategory: "Beef", strMeal: "Stew" }), true);
+  assert.equal(hasBeef({ strCategory: "Pasta", strMeal: "Lasagne", strIngredient1: "Pasta", strIngredient2: "Minced Beef" }), true);
+  assert.equal(hasBeef({ strCategory: "Side", strMeal: "Beef Mandi" }), true);
+  assert.equal(hasBeef({ strCategory: "Vegetarian", strMeal: "Matar Paneer", strIngredient1: "Paneer", strIngredient2: "Beef tomatoes" }), false);
+  assert.equal(hasBeef(null), false);
+});
+
+test("looksBeef filters card lists by known id or name", () => {
+  const ids = new Set(["52770"]);
+  assert.equal(looksBeef({ id: "52770", name: "Lasagne" }, ids), true);
+  assert.equal(looksBeef({ id: "1", name: "Beef Wellington" }, ids), true);
+  assert.equal(looksBeef({ id: "2", name: "Dal fry" }, ids), false);
 });
 
 test("only TheMealDB images are trusted", () => {
