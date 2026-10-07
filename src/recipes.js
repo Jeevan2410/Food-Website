@@ -104,6 +104,28 @@ export function parseSaved(json) {
   }
 }
 
+/**
+ * JeevanKitchen leaves out beef. True for beef, veal, oxtail, suet, tripe and beef cuts such as
+ * sirloin or chuck; false for "beef tomatoes" (a tomato) and steaks of other meats or fish.
+ */
+export function isBeefIngredient(name) {
+  const text = String(name).toLowerCase();
+  if (/beef\s*tomato/.test(text)) return false;
+  if (/\b(beef|veal|oxtail|suet|tripe|brisket|sirloin|chuck)\b/.test(text)) return true;
+  return /\bsteak/.test(text) && !/\b(pork|lamb|chicken|turkey|tuna|salmon|fish|cod|swordfish|cauliflower|mushroom|tofu)\b/.test(text);
+}
+
+/** Whether a full meal from TheMealDB contains beef, by category, name or ingredients. */
+export function hasBeef(meal) {
+  if (!meal) return false;
+  if (meal.strCategory === "Beef") return true;
+  if (/\bbeef\b/i.test(meal.strMeal ?? "")) return true;
+  return ingredients(meal).some((item) => isBeefIngredient(item.name));
+}
+
+/** For card lists, which only carry an id and a name: the known beef ids plus a name check. */
+export const looksBeef = (summaryItem, beefIds) => beefIds.has(summaryItem.id) || /\bbeef\b/i.test(summaryItem.name);
+
 /** Only TheMealDB's own image host is used for pictures. */
 export const safeImage = (url) =>
   typeof url === "string" && url.startsWith("https://www.themealdb.com/images/") ? url : null;
