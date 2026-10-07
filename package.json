@@ -1,0 +1,12 @@
+{
+  "name": "jeevan-kitchen",
+  "private": true,
+  "type": "module",
+  "description": "JeevanKitchen: recipes from TheMealDB with a cook mode, timers and favourites; no build step",
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
